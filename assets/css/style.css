@@ -1,0 +1,25 @@
+p {
+    font-size: 10px;
+    color: white;
+}
+
+body {
+    color: white;
+    background-image: url(../images/swbackground.jpg);
+}
+
+h3 {
+    font-size: 20px;
+    color: white;
+    padding: 5px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.container {
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+}
