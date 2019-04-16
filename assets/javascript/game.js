@@ -38,16 +38,16 @@ $(document).ready(function () {
 
             var charName = $("<h5></h5>");
             charName.append(characters[i].name);
-            $("#players-options").append(charName);
+            $("#players-profile").append(charName);
 
             var charProfile = $("<img>");
             charProfile.attr("src", characters[i].profile);
             charProfile.append(characters[i].profile);
-            $("#players-options").append(charProfile);
+            $("#players-profile").append(charProfile);
 
             var charHealth = $("<h6></h6>");
             charHealth.append(characters[i].health);
-            $("#players-options").append(charHealth);
+            $("#players-profile").append(charHealth);
 
         };
 
@@ -72,6 +72,18 @@ $(document).ready(function () {
 //is the same as starting 'Attack Power'
 //never changes
 
+//each character needs to be its own variable
+$()
+
+//when that character is clicked, it is moved to player selection
+//other characters are moved to enemies
+//user clicks enemy to move to defender area
+
+$("#attack-button").on("click", function () {
+    //attack defender
+    //increase attack by base number (6, 12, 18 etc.)
+});
+
 //user must be able to win with each player
 
 //characters start in selection area
@@ -79,9 +91,10 @@ $(document).ready(function () {
 
 //user selects character by selecting the image
 
-$("#players-options").on("click", function () {
-    console.log('hi');
-    $("#players-options").appendTo("#players-selection");
+$("#players-profile").on("click", function () {
+    var userPick;
+    console.log(userPick);
+    $("#players-profile").appendTo("#players-selection");
 });
     //sound is played on selection
     //character goes to 'Your Character' section
