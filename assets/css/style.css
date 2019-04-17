@@ -28,6 +28,7 @@ img {
     width: 100px;
     height: 200px;
     padding: 10px;
+    border-width: 10px;
 }
 
 h5 {
@@ -38,7 +39,24 @@ h5 {
     float: left;
 }
 
-#attack-button {
-    margin-left: 450px;
+.attackBtn {
+    background: transparent;
     color: #FFD700;
+    border-color: #FFD700;
+    width: 75px;
+}
+.charSection {
+    width: 570px;
+    height: 150px;
+    margin: 60px 0 0 10px;
+}
+.enemiesSection {
+    width: 570px;
+    height: 150px;
+    margin: 60px 0 0 10px;
+}
+.fightSection {
+    width: 570px;
+    height: 150px;
+    margin: 60px 0 0 10px;
 }
