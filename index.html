@@ -12,38 +12,40 @@
 
 <body>
 
-    <h1>Star Wars RPG!</h1>
+    <h1 class="star-title">Star Wars RPG!</h1>
+    <div id="game-section">
+        <div id="characters-section">
+            <div class="section-titles">Select Your Character</div>
+        </div>
 
-    <div class="container">
-        <div class="row">
+        <div id="selected-character-section">
+            <div class="section-titles">Your Character</div>
+        </div>
 
-            <div class="charSection col-md-12">Your Character
-                <div id="luke">
-                    <div id="luke-health"></div>
-                </div>
-                <div id="r2d2"></div>
-                <div id="darth"></div>
-                <div id="kylo"></div>
+        <div id="availabe-enemies">
+            <div class="section-titles">Enemies Available to Attack</div>
+        </div>
+
+        <div class="section-titles">Fight Section</div>
+        <div id="fight-section">
+            <button id="attack-button">Attack</button>
+        </div>
+
+        <div id="game-actions">
+            <div class="characters-selection">
+                <div class="section-titles">Defender</div>
+                <div id="defender-section"></div>
             </div>
-        </div>
-        <div class="row">
-            <div class="enemiesSection col-md-12">Enemies Available to Attack</div>
-            <div id="enemy-one"></div>
-            <div id="enemy-two"></div>
-            <div id="enemy-three"></div>
-        </div>
-
-        <div class="row">
-            <div class="fightSection col-md-12">Fight Section</div>
-            <button class="attackBtn col-md-2">Attack</button>
-            <div class="defenderSection col-md-12">Defender Section</div>
-            <div id="defener"></div>
         </div>
 
     </div>
 
+    <div id="game-messages">
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
 </body>
 
