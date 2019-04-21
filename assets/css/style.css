@@ -1,84 +1,23 @@
-/* p {
-    font-size: 10px;
-    color: #FFD700;
-}
-
 body {
     color: #FFD700;
     background-image: url(../images/swbackground.jpg);
-}
-
-h3 {
-    font-size: 20px;
-    color: #FFD700;
-    padding: 10px;
-}
-
-.container {
-    padding: 10px;
-    width: 960px;
-}
-
-h1 {
-    text-align: center;
-    color: #FFD700;
-}
-
-img {
-    width: 100px;
-    height: 200px;
-    padding: 10px;
-    border-width: 10px;
-}
-
-h5 {
-    float: left;
-}
-
-#players-selection {
-    float: left;
-}
-
-.attackBtn {
-    background: transparent;
-    color: #FFD700;
-    border-color: #FFD700;
-    width: 75px;
-}
-.charSection {
-    width: 570px;
-    height: 150px;
-    margin: 60px 0 0 10px;
-}
-.enemiesSection {
-    width: 570px;
-    height: 150px;
-    margin: 60px 0 0 10px;
-}
-.fightSection {
-    width: 570px;
-    height: 150px;
-    margin: 60px 0 0 10px;
-} */
-
-
-body {
-    color: #FFD700;
-    background-image: url(../images/swbackground.jpg);
+    margin-left: 10px;
 }
 .section-titles {
     font-size: 20px;
+    padding: 10px;
 }
 .main-section {
     font-size: 50px;
     text-align: center;
 }
 img {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 150px;
     padding: 10px;
     border-width: 10px;
     border-radius: 5px;
+    align-content: center;
 }
 .character {
     display: inline-block;
@@ -98,5 +37,15 @@ img {
     text-align: center;
 }
 .character-health {
+    text-align: center;
+}
+#attack-button {
+    color: #FFD700;
+    background: transparent;
+    
+    
+    align-content: center;
+}
+#star-title {
     text-align: center;
 }
