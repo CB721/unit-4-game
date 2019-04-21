@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    //dfine characters
     let characters = {
 
         Luke: {
@@ -33,12 +34,15 @@ $(document).ready(function () {
 
     };
 
+    //define variables
     var selectedChar;
     var enemies = [];
     var currDefender;
     var turnCounter = 1;
     var killCount = 0;
 
+
+    //reset game
     var restart = function (endGame) {
         var reset = $("<button>Restart</button>").click(function () {
             location.reload();
@@ -48,6 +52,8 @@ $(document).ready(function () {
         $("body").append(reset);
     };
 
+
+    //display characters
     var displayA = function (character, displayArea, charStatus) {
         var charDiv = $("<div class='character'.(data-name='" + character.name + "')>");
         var charName = $("<div class='character-name'>").text(character.name);
@@ -65,6 +71,7 @@ $(document).ready(function () {
         }
     };
 
+    //create game messages
     var showGameMessage = function (message) {
         var gameMessages = $("#game-messages");
         var newMessage = $("<div>").text(message);
@@ -75,8 +82,11 @@ $(document).ready(function () {
         }
     };
 
+
+    //place characters in divs
     var createCharacters = function (charObj, areaRender) {
 
+        //section for player to select character
         if (areaRender == '#characters-section') {
             $(areaRender).empty();
 
@@ -88,15 +98,18 @@ $(document).ready(function () {
             }
         }
 
+        //selected character goes here
         if (areaRender === "#selected-character-section") {
             displayA(charObj, areaRender, '');
         }
 
-        if (areaRender == "#availabe-enemies") {
+        //all other characters go here
+        if (areaRender == "#available-enemies") {
 
             for (var i = 0; i < charObj.length; i++) {
                 displayA(charObj[i], areaRender, 'enemy');
             }
+            //when character is clicked, they are redefined as an enemy and moved to defender section
             $(document).on('click', '.enemy', function () {
                 name = ($(this).attr('data-name'));
 
@@ -108,7 +121,7 @@ $(document).ready(function () {
             });
         }
 
-
+        //place selected enemmy in defender section div
         if (areaRender == '#defender-section') {
             $(areaRender).empty();
 
@@ -130,6 +143,7 @@ $(document).ready(function () {
             displayA(charObj, '#selected-character-section', '');
         }
 
+        //when player defeates an enemy
         if (areaRender == 'enemyDefeated') {
             $('#defender').empty();
             var gameMessages = "You have defeated " + charObj.name + ", you can choose another fighter."
@@ -137,10 +151,13 @@ $(document).ready(function () {
         }
     };
 
+    //inital character placement
     createCharacters(characters, "#characters-section");
 
 
-
+    //character/enemy seletion when clicked
+    //selected character should go to selected character section div
+    //other characters should go to available enemies div
     $(document).on('click', '.character', function () {
         name = $(this).data('name');
         if (!selectedChar) {
@@ -152,18 +169,21 @@ $(document).ready(function () {
             }
             $("#characters-section").hide();
             createCharacters(selectedChar, '#selected-character-section');
-            createCharacters(enemies, '#availabe-enemies');
+            createCharacters(enemies, '#available-enemies');
         }
     });
 
+    //attack sequence
     $('#attack-button').on('click', function () {
         if ($('#defender').children().length !== 0) {
 
+            //game messages for attacks
             var attackMessage = "You attacked " + currDefender.name + " for " + (selectedChar.attack + turnCounter) + " damage!";
             var counterAttack = currDefender.name + " attacked you for " + currDefender.enemyAttack + " damage!";
             showGameMessage('clearMessage');
             currDefender.health = currDefender.health - (selectedChar.attack * turnCounter);
 
+            //defender sequence
             if (currDefender.health > 0) {
                 createCharacters(currDefender, 'playerDamage');
                 showGameMessage(attackMessage);
@@ -171,16 +191,19 @@ $(document).ready(function () {
                 showGameMessage(counterAttack);
                 createCharacters(selectedChar, 'enemyDamage');
 
+                //if player loses
                 if (selectedChar.health <= 0) {
                     showGameMessage("clearMessage");
                     restart("You have been defeate...");
                     $("#attack-button").unbind("click");
                 }
             }
+            //if player wins
             else {
                 createCharacters(currDefender, 'enemyDefeated');
                 killCount++;
 
+                //if player defeates all other characters
                 if (killCount >= 3) {
                     showGameMessage("clearMessage");
                     restart("You defeated all the enemies!");
